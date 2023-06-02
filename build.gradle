@@ -1,0 +1,42 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+//application{
+//    main
+//}
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    // ksmt core
+    implementation "io.ksmt:ksmt-core:0.5.3"
+    // z3 solver
+    implementation "io.ksmt:ksmt-z3:0.5.3"
+    implementation "io.ksmt:ksmt-yices:0.5.3"
+    implementation "io.ksmt:ksmt-cvc5:0.5.3"
+    implementation "io.ksmt:ksmt-bitwuzla:0.5.3"
+    implementation "io.ksmt:ksmt-runner:0.5.3"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.8.21"
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = '17'
+}
